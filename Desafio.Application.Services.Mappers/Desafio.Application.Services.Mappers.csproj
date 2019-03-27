@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Desafio.Application.Services.Messages\Desafio.Application.Services.Messages.csproj" />
+    <ProjectReference Include="..\Desafio.Domain.Models\Desafio.Domain.Models.csproj" />
+  </ItemGroup>
+
+</Project>
