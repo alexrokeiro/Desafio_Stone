@@ -25,7 +25,7 @@ namespace Desafio.Domain.Services.Task.Imp
 
             foreach (Funcionario funcionario in funcionarios)
             {
-                distribuicao.AdicionarFuncionario(funcionario.Matricula, funcionario.Nome,funcionario.Area, funcionario.Cargo, funcionario.SalarioBruto, funcionario.DataAdmissao, double.Parse(Configuration.GetSection("SalarioMinimo").ToString()));
+                distribuicao.AdicionarFuncionario(funcionario.Matricula, funcionario.Nome,funcionario.Area, funcionario.Cargo, funcionario.SalarioBruto, funcionario.DataAdmissao, double.Parse(Configuration.GetSection("SalarioMinimo").Value));
             }
 
             distribuicao.ConsolidarValores();

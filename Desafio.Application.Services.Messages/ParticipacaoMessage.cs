@@ -9,12 +9,12 @@ namespace Desafio.Application.Services.Messages
     public class ParticipacaoMessage
     {
         [DataMember(Name = "matricula")]
-        public long Matricula { get; set; }
+        public string Matricula { get; set; }
 
         [DataMember(Name = "nome")]
         public string Nome { get; set; }
 
         [DataMember(Name = "valor_da_participacao")]
-        public double ValorParticipacao { get; set; }
+        public string ValorParticipacao { get; set; }
     }
 }

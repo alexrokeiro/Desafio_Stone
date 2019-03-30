@@ -17,7 +17,7 @@ namespace Desafio.Domain.Models
         public static DistribuicaoLucros Criar(double totalDisponibilizado)
         {
             var model = new DistribuicaoLucros();
-            model.SaldoTotalDisponibilizado = totalDisponibilizado;
+            model.TotalDisponibilizado = totalDisponibilizado;
 
             return model;
         }
@@ -29,7 +29,7 @@ namespace Desafio.Domain.Models
         }
 
 
-        public void AdicionarFuncionario(long matricula, string nome, string area, string cargo, double salarioBruto, DateTime dataAdmissao, double salarioMinimo)
+        public void AdicionarFuncionario(string matricula, string nome, string area, string cargo, double salarioBruto, DateTime dataAdmissao, double salarioMinimo)
         {
             var model = Funcionario.Criar(matricula, nome, area, cargo, salarioBruto, dataAdmissao);
             model.CalcularParticipacaoLucros(salarioMinimo);

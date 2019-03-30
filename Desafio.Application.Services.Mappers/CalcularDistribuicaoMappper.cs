@@ -1,6 +1,7 @@
 ﻿using Desafio.Application.Services.Messages;
 using Desafio.Domain.Models;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace Desafio.Application.Services.Mappers
@@ -43,10 +44,12 @@ namespace Desafio.Application.Services.Mappers
             if (model == null)
                 return new ParticipacaoMessage();
 
+            var culture = CultureInfo.CreateSpecificCulture("pt-BR");
+
             var response = new ParticipacaoMessage();
             response.Matricula = model.Matricula;
             response.Nome = model.Nome;
-            response.ValorParticipacao = model.ValorDistribuicao;
+            response.ValorParticipacao = $"R$: {model.ValorDistribuicao.ToString("C",culture)}";
 
             return response;
         }

@@ -1,22 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Desafio.Domain.Models
 {
+    [DataContract]
     public class Funcionario
     {
         private Funcionario() { }
 
-        public long Matricula { get; protected set; }
+        [DataMember(Name = "matricula")]
+        public string Matricula { get; protected set; }
+        [DataMember(Name = "nome")]
         public string Nome { get; protected set; }
+        [DataMember(Name = "area")]
         public string Area { get; protected set; }
+        [DataMember(Name = "cargo")]
         public string Cargo { get; protected set; }
+        [DataMember(Name = "salario_bruto")]
         public double SalarioBruto { get; protected set; }
+        [DataMember(Name = "data_de_admissao")]
         public DateTime DataAdmissao { get; protected set; }
         public Double ValorDistribuicao { get; protected set; }
 
-        internal static Funcionario Criar(long matricula, string nome, string area, string cargo, double salarioBruto, DateTime dataAdmissao)
+        internal static Funcionario Criar(string matricula, string nome, string area, string cargo, double salarioBruto, DateTime dataAdmissao)
         {
 
             var funcionario = new Funcionario();
@@ -36,7 +44,7 @@ namespace Desafio.Domain.Models
             if (Cargo.ToLower() == "estagiário")
                 return 1;
 
-            int qtdSalarioMinimos = (int)(SalarioBruto % salarioMinimo);
+            int qtdSalarioMinimos = (int)(SalarioBruto / salarioMinimo);
 
             if (qtdSalarioMinimos <= 3)
                 return 1;
@@ -52,24 +60,24 @@ namespace Desafio.Domain.Models
 
         private int ObterPesoAreaAtuacao()
         {
-            if (Cargo == "Diretoria")
+            if (Area == "Diretoria")
                 return 1;
 
-            if (Cargo == "Contabilidade" || Cargo == "Financeiro" || Cargo == "Tecnologia")
+            if (Area == "Contabilidade" || Area == "Financeiro" || Area == "Tecnologia")
                 return 2;
 
-            if (Cargo == "Serviços Gerais")
+            if (Area == "Serviços Gerais")
                 return 3;
 
-            if (Cargo == "Relacionamento com o Cliente")
-                return 3;
+            if (Area == "Relacionamento com o Cliente")
+                return 5;
 
             return 0;
         }
 
         private int ObterPesoTempoAdmissao()
         {
-            var tempoAdmissao = DataAdmissao.Subtract(DateTime.Now);
+            var tempoAdmissao = DateTime.Now.Subtract(DataAdmissao);
 
             if (tempoAdmissao.TotalDays < 365)
                 return 1;
