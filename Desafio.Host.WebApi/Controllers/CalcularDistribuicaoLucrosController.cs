@@ -11,11 +11,11 @@ namespace Desafio.Host.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ParticipacaoLucrosController : ControllerBase
+    public class CalcularDistribuicaoLucrosController : ControllerBase
     {
-        public IParticipacaoLucrosApplicationService ParticipacaoLucrosApplicationService { get; }
+        public ICalcularDistribuicaoLucrosApplicationService ParticipacaoLucrosApplicationService { get; }
 
-        public ParticipacaoLucrosController(IParticipacaoLucrosApplicationService participacaoLucrosApplicationService)
+        public CalcularDistribuicaoLucrosController(ICalcularDistribuicaoLucrosApplicationService participacaoLucrosApplicationService)
         {
             ParticipacaoLucrosApplicationService = participacaoLucrosApplicationService;
         }

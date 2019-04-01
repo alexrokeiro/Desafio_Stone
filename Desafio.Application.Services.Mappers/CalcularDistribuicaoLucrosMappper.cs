@@ -6,18 +6,19 @@ using System.Linq;
 
 namespace Desafio.Application.Services.Mappers
 {
-    public class CalcularDistribuicaoMappper
+    public class CalcularDistribuicaoLucrosMappper
     {
         public static CalcularDistribuicaoLucrosMessageResponse MapToResponse(DistribuicaoLucros model)
         {
             if (model == null)
                 return new CalcularDistribuicaoLucrosMessageResponse();
 
+            var culture = CultureInfo.CreateSpecificCulture("pt-BR");
             var response = new CalcularDistribuicaoLucrosMessageResponse();
-            response.SaldTotalDisponibilizado = model.SaldoTotalDisponibilizado.ToString();
-            response.TotaldeDistribuido = model.TotalDistribuido.ToString();
+            response.SaldTotalDisponibilizado = $"R$: {model.SaldoTotalDisponibilizado.ToString("C", culture)}";
+            response.TotaldeDistribuido = $"R$: {model.TotalDistribuido.ToString("C", culture)}";
             response.TotaldeFuncionarios = model.Funcionarios.Count().ToString();
-            response.TotalDisponibilizado = model.TotalDisponibilizado.ToString();
+            response.TotalDisponibilizado = $"R$: {model.TotalDisponibilizado.ToString("C", culture)}";
             response.Participacoes = MapToResponse(model.Funcionarios);
 
             return response;

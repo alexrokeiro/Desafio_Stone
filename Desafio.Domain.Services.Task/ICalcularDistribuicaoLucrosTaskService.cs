@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Desafio.Domain.Services.Task
 {
-    public interface ICalcularDistribuicaoTaskService
+    public interface ICalcularDistribuicaoLucrosTaskService
     {
         DistribuicaoLucros CalcularDistribuicaoLucros(double valorTotalDisponibilizado);
     }

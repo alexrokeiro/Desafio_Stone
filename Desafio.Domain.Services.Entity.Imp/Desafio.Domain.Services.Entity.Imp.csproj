@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Desafio.Domain.Services.Entity\Desafio.Domain.Services.Entity.csproj" />
+    <ProjectReference Include="..\Desafio.Infra.DataAcess\Desafio.Infra.DataAcess.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Desafio.Application.Services
 {
-    public interface IParticipacaoLucrosApplicationService
+    public interface ICalcularDistribuicaoLucrosApplicationService
     {
         CalcularDistribuicaoLucrosMessageResponse CalcularDistribuicaoLucros(CalcularDistribuicaoLucrosMessageRequest request);
     }

@@ -1,33 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Text;
 
 namespace Desafio.Domain.Models
 {
-    [DataContract]
     public class Funcionario
     {
         private Funcionario() { }
 
-        [DataMember(Name = "matricula")]
+        public Guid Id { get; private set; }
+
+        
         public string Matricula { get; protected set; }
-        [DataMember(Name = "nome")]
         public string Nome { get; protected set; }
-        [DataMember(Name = "area")]
         public string Area { get; protected set; }
-        [DataMember(Name = "cargo")]
         public string Cargo { get; protected set; }
-        [DataMember(Name = "salario_bruto")]
         public double SalarioBruto { get; protected set; }
-        [DataMember(Name = "data_de_admissao")]
         public DateTime DataAdmissao { get; protected set; }
         public Double ValorDistribuicao { get; protected set; }
 
-        internal static Funcionario Criar(string matricula, string nome, string area, string cargo, double salarioBruto, DateTime dataAdmissao)
+        public static Funcionario Criar(string matricula, string nome, string area, string cargo, double salarioBruto, DateTime dataAdmissao)
         {
 
             var funcionario = new Funcionario();
+            funcionario.Id = Guid.NewGuid();
             funcionario.Matricula = matricula;
             funcionario.Nome = nome;
             funcionario.Area = area;
@@ -49,10 +43,10 @@ namespace Desafio.Domain.Models
             if (qtdSalarioMinimos <= 3)
                 return 1;
 
-            if (qtdSalarioMinimos <= 5)
+            if (qtdSalarioMinimos < 5)
                 return 2;
 
-            if (qtdSalarioMinimos <= 8)
+            if (qtdSalarioMinimos < 8)
                 return 3;
 
             return 5;

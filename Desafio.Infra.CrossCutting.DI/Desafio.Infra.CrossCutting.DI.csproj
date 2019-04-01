@@ -13,6 +13,7 @@
     <ProjectReference Include="..\Desafio.Application.Services\Desafio.Application.Services.csproj" />
     <ProjectReference Include="..\Desafio.Domain.Services.Entity.Imp\Desafio.Domain.Services.Entity.Imp.csproj" />
     <ProjectReference Include="..\Desafio.Domain.Services.Task.Imp\Desafio.Domain.Services.Task.Imp.csproj" />
+    <ProjectReference Include="..\Desafio.Infra.DataAcess.MongoDb\Desafio.Infra.DataAcess.MongoDb.csproj" />
   </ItemGroup>
 
 </Project>

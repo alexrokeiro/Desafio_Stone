@@ -7,12 +7,12 @@ using Microsoft.Extensions.Configuration;
 
 namespace Desafio.Domain.Services.Task.Imp
 {
-    public class CalcularDistribuicaoTaskService : ICalcularDistribuicaoTaskService
+    public class CalcularDistribuicaoLucrosTaskService : ICalcularDistribuicaoLucrosTaskService
     {
         public IFuncionarioEntityService FuncionarioEntityService { get; }
         public IConfiguration Configuration { get; }
 
-        public CalcularDistribuicaoTaskService(IFuncionarioEntityService funcionarioEntityService, IConfiguration configuration)
+        public CalcularDistribuicaoLucrosTaskService(IFuncionarioEntityService funcionarioEntityService, IConfiguration configuration)
         {
             FuncionarioEntityService = funcionarioEntityService;
             Configuration = configuration;

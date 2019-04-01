@@ -7,18 +7,18 @@ using Desafio.Domain.Services.Task;
 
 namespace Desafio.Application.Services.Imp
 {
-    public class ParticipacaoLucrosApplicationService : IParticipacaoLucrosApplicationService
+    public class CalcularDistribuicaoLucrosApplicationService : ICalcularDistribuicaoLucrosApplicationService
     {
-        public ICalcularDistribuicaoTaskService CalcularDistribuicaoTaskService { get; }
+        public ICalcularDistribuicaoLucrosTaskService CalcularDistribuicaoTaskService { get; }
 
-        public ParticipacaoLucrosApplicationService(ICalcularDistribuicaoTaskService calcularDistribuicaoTaskService)
+        public CalcularDistribuicaoLucrosApplicationService(ICalcularDistribuicaoLucrosTaskService calcularDistribuicaoTaskService)
         {
             CalcularDistribuicaoTaskService = calcularDistribuicaoTaskService;
         }
 
         public CalcularDistribuicaoLucrosMessageResponse CalcularDistribuicaoLucros(CalcularDistribuicaoLucrosMessageRequest request)
         {
-            return CalcularDistribuicaoMappper.MapToResponse(CalcularDistribuicaoTaskService.CalcularDistribuicaoLucros(request.VvalorMaximoDistribuir));
+            return CalcularDistribuicaoLucrosMappper.MapToResponse(CalcularDistribuicaoTaskService.CalcularDistribuicaoLucros(request.VvalorMaximoDistribuir));
         }
     }
 }
